@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyLogic : MonoBehaviour
 {
+    public Animator anim;
     public bool stunned;
 
     public int HitsLeft = 1;
@@ -28,6 +29,8 @@ public class EnemyLogic : MonoBehaviour
         {
             Debug.Log("Demon captured!");
             //Play capture animation
+            anim.SetTrigger("Captured");
             //Disable Enemy
+            Destroy(gameObject);
         }
 }
