@@ -30,7 +30,10 @@ public class EnemyLogic : MonoBehaviour
             Debug.Log("Demon captured!");
             //Play capture animation
             anim.SetTrigger("Captured");
-            //Disable Enemy
+        }
+    
+    public void OnDeathAnimationFinished()
+        {
             Destroy(gameObject);
         }
 }
