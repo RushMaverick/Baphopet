@@ -125,6 +125,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 4930111344912066280}
   stunned: 0
+  other: {fileID: 0}
+  moveSpeed: 0
   HitsLeft: 1
 --- !u!95 &4930111344912066280
 Animator:
