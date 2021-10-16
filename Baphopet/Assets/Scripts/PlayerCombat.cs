@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerCombat : MonoBehaviour
 {
     public Animator anim;
-
     public Transform punchPoint;
     public Transform netPoint;
     public float punchRange = 10f;
