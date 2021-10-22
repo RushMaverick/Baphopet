@@ -4,17 +4,17 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - punch
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - enemy
-  - player
-  - punch
+  - Enemy
+  - Obstacle
+  - Ground
   - 
   - 
   - 
