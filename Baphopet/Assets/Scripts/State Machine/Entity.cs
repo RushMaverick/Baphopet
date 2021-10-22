@@ -15,9 +15,10 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     private Transform wallCheck;
-
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private Transform playerCheck;
 
     private Vector2 velocityWorkspece;
 
@@ -56,6 +57,16 @@ public class Entity : MonoBehaviour
     public virtual bool CheckGround()
     {
         return Physics2D.Raycast(groundCheck.position, Vector2.down, entityData.groundCheckDistance, entityData.whatIsGround);
+    }
+
+    public virtual bool CheckPlayerInMinAgroRange()
+    {
+        return Physics2D.Raycast(playerCheck.position, aliveGO.transform.right, entityData.minAgroDistance, entityData.whatIsPlayer);
+    }
+
+    public virtual bool CheckPlayerInMaxAgroRange()
+    {
+        return Physics2D.Raycast(playerCheck.position, aliveGO.transform.right, entityData.maxAgroDistance, entityData.whatIsPlayer);
     }
 
     public virtual void Flip()
