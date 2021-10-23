@@ -437,7 +437,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
+    oldSize: {x: 2, y: 2}
     newSize: {x: 4, y: 4}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -486,7 +486,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6369384564468328029, guid: e69a2a254136a1240b4df8e428a30427, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d90c2de77520b0743ae9f055807aa77a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -769,7 +769,7 @@ Camera:
   far clip plane: 5000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.5
+  orthographic size: 9
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -1215,7 +1215,7 @@ MonoBehaviour:
   m_Follow: {fileID: 289394838}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 1.5
+    OrthographicSize: 9
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
@@ -1298,8 +1298,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: pfEnemy
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1369738002552443863, guid: bb5f5e611d60be240a24e9950764f10f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bb5f5e611d60be240a24e9950764f10f, type: 3}
 --- !u!1 &5903440892331929067 stripped
 GameObject:
