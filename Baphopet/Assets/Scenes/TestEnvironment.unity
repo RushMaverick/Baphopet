@@ -376,6 +376,7 @@ Transform:
   m_Children:
   - {fileID: 1035995284}
   - {fileID: 1157764859}
+  - {fileID: 370634322}
   m_Father: {fileID: 5903440892331929068}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -599,11 +600,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 370634319}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2373, y: -0.03219986, z: 0}
+  m_LocalPosition: {x: -4.9704237, y: -5.4603443, z: 0}
   m_LocalScale: {x: 37.96312, y: 21.5556, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_Father: {fileID: 325087544}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488705754
 GameObject:
@@ -792,7 +793,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896344815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.058410645, z: -13.089961}
+  m_LocalPosition: {x: 1, y: 0.058410645, z: -10.770539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1055,7 +1056,7 @@ MonoBehaviour:
   m_TargetMovementOnly: 1
   m_ScreenX: 0.5
   m_ScreenY: 0.5
-  m_CameraDistance: 23.289421
+  m_CameraDistance: 20.97
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
@@ -1127,6 +1128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1939645315}
+  - component: {fileID: 1939645316}
   m_Layer: 3
   m_Name: PlayerPunchBox
   m_TagString: punch
@@ -1234,7 +1236,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125004052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.058410645, z: -13.089961}
+  m_LocalPosition: {x: 1, y: 0.058410645, z: -10.770539}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1739174607}
