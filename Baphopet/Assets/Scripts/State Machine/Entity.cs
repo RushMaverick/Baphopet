@@ -20,11 +20,16 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private Transform playerCheck;
 
+    private float currentHealth;
+
+    private int lastDamageDirection;
+
     private Vector2 velocityWorkspece;
 
     public virtual void Start()
     {
         faceingDirection = 1;
+        currentHealth = entityData.maxHealth;
 
         aliveGO = transform.Find("Alive").gameObject;
         rb = aliveGO.GetComponent<Rigidbody2D>();
@@ -49,6 +54,13 @@ public class Entity : MonoBehaviour
         rb.velocity = velocityWorkspece;
     }
 
+    public virtual void SetVelocity(float velocity, Vector2 angle, int direction)
+    {
+        angle.Normalize();
+        velocityWorkspece.Set(angle.x * velocity * direction, angle.y * velocity);
+        rb.velocity = velocityWorkspece;
+    }
+
     public virtual bool CheckWall()
     {
         return Physics2D.Raycast(wallCheck.position, aliveGO.transform.right, entityData.wallCheckDistance, entityData.whatIsGround);
@@ -56,7 +68,7 @@ public class Entity : MonoBehaviour
 
     public virtual bool CheckGround()
     {
-        return Physics2D.Raycast(groundCheck.position, Vector2.down, entityData.groundCheckDistance, entityData.whatIsGround);
+        return Physics2D.OverlapCircle(groundCheck.position, entityData.groundCheckRadius, entityData.whatIsGround);
     }
 
     public virtual bool CheckPlayerInMinAgroRange()
@@ -67,6 +79,16 @@ public class Entity : MonoBehaviour
     public virtual bool CheckPlayerInMaxAgroRange()
     {
         return Physics2D.Raycast(playerCheck.position, aliveGO.transform.right, entityData.maxAgroDistance, entityData.whatIsPlayer);
+    }
+
+    public virtual bool CheckPlayerInCloseRangeAction()
+    {
+        return.Physics2D.Raycast(playerCheck.position, aliveGO.transform.right, entityData.closeRangeActionDistance, entityData.whatIsPlayer);
+    }
+
+    public virtual void Damage(AttackDetails attackDetails)
+    {
+        currentHealth -= attackDetails.damageAmount;
     }
 
     public virtual void Flip()

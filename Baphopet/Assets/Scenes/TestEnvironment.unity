@@ -166,9 +166,9 @@ GameObject:
   - component: {fileID: 289394837}
   - component: {fileID: 289394840}
   - component: {fileID: 289394839}
-  - component: {fileID: 289394842}
   - component: {fileID: 289394841}
   - component: {fileID: 289394843}
+  - component: {fileID: 289394842}
   m_Layer: 3
   m_Name: PlayerObject
   m_TagString: Untagged
@@ -307,17 +307,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 289394836}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20eef07648154e342860d2b8c0909a90, type: 3}
+  m_Script: {fileID: 11500000, guid: d5d828933d76f9c48aedf87ef65d63f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 289394841}
-  punchPoint: {fileID: 1939645315}
-  netPoint: {fileID: 1779740819}
-  punchRange: 0.5
-  netRange: 0.5
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 64
+  combatEnabled: 0
 --- !u!61 &289394843
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -513,6 +506,7 @@ MonoBehaviour:
   anim: {fileID: 325087546}
   stunned: 0
   HitsLeft: 1
+  rb: {fileID: 0}
 --- !u!1 &370634319
 GameObject:
   m_ObjectHideFlags: 0
