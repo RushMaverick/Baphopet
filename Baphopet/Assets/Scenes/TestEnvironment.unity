@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 289394843}
   m_Layer: 3
   m_Name: PlayerObject
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,8 +234,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 289394836}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.058410645, z: 10.19946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1939645315}
@@ -809,7 +809,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 896344815}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.058410645, z: -10.770539}
+  m_LocalPosition: {x: 0, y: 0, z: -20.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -921,6 +921,7 @@ GameObject:
   - component: {fileID: 1583170552}
   - component: {fileID: 1583170551}
   - component: {fileID: 1583170550}
+  - component: {fileID: 1583170554}
   m_Layer: 0
   m_Name: Demon
   m_TagString: Untagged
@@ -1034,12 +1035,32 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1583170549}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0095097, y: -6.4258194, z: -125.83634}
+  m_LocalPosition: {x: 1.35, y: -5.67, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1583170554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583170549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55a258e5496b5546aed88654f835216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hits: 1
+  enemyName: Slime Demon
+  baseAttack: 0
+  target: {fileID: 289394838}
+  escapeRadius: 5
+  safeRadius: 2
+  moveSpeed: 4
+  homePosition: {fileID: 0}
 --- !u!1 &1635897345
 GameObject:
   m_ObjectHideFlags: 0
@@ -1383,7 +1404,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125004052}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1, y: 0.058410645, z: -10.770539}
+  m_LocalPosition: {x: 0, y: 0, z: -20.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1739174607}
