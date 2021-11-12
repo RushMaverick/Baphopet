@@ -25,7 +25,7 @@ public class SlimeDemon : Enemy
     {
         if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, transform.position) > safeRadius)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, target.position, - 1 * moveSpeed * Time.deltaTime);
         }
 
 

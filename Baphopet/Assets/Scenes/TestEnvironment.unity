@@ -1056,7 +1056,7 @@ MonoBehaviour:
   hits: 1
   enemyName: Slime Demon
   baseAttack: 0
-  target: {fileID: 289394838}
+  target: {fileID: 0}
   escapeRadius: 5
   safeRadius: 2
   moveSpeed: 4
