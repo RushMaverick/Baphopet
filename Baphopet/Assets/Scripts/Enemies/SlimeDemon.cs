@@ -8,7 +8,12 @@ public class SlimeDemon : Enemy
     public float escapeRadius;
     public float safeRadius; 
     public float moveSpeed;
+    private bool isMoving;
     public Transform homePosition; 
+    Vector3 PreviousPosition;
+    Vector3 CurrentMoveDirection;
+
+     //Update is called once per frame
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -16,19 +21,29 @@ public class SlimeDemon : Enemy
     }
 
    
-    void Update()
+    private void Update()
     {
+        //Checks position of enemy, currently unused. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
+        if (PreviousPosition != transform.position)
+            {   
+                CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
+                PreviousPosition = transform.position;
+                Debug.Log("Demon is" + CurrentMoveDirection);
+            }
+
         CheckDistance();
     }
 
     void CheckDistance()
     {
-        if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, transform.position) > safeRadius)
+        if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, PreviousPosition) > safeRadius)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target.position, - 1 * moveSpeed * Time.deltaTime);
+            if ((target.position - PreviousPosition).sqrMagnitude > Mathf.Epsilon)
+            {
+                transform.position = Vector3.MoveTowards(PreviousPosition, target.position, - 1 * moveSpeed * Time.deltaTime);
+                Debug.Log("Grid Movement here");
+            }
         }
-
-
     }
 
        void OnDrawGizmos() {
@@ -36,3 +51,8 @@ public class SlimeDemon : Enemy
         Gizmos.DrawWireSphere(transform.position, safeRadius);
     }
 }
+
+
+
+/*       
+        CheckDistance();*/

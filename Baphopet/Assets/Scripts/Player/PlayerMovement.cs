@@ -5,35 +5,53 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    public float moveSpeed = 5f;
-
+    public float moveSpeed;
+    private bool isMoving;
+    private Vector2 input;
     public Rigidbody2D rb;
     public Animator animator;
 
-    Vector2 movement;
+
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        movement.x = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+        if (!isMoving)
+        {
+                input.x = Input.GetAxisRaw("Horizontal");
+                input.y = Input.GetAxisRaw("Vertical");
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Speed", movement.sqrMagnitude);
+                //remove diagonal movement
+                if (input.x != 0) input.y = 0;
+                
+                //If Player is not giving inputs for movement
+                if (input != Vector2.zero)
+                {
+                    var targetPos = transform.position;
+                    targetPos.x += input.x;
+                    targetPos.y += input.y; 
+
+                    StartCoroutine(Move(targetPos));
+                }
+                
+                animator.SetFloat("Horizontal", input.x);
+                animator.SetFloat("Vertical", input.y);
+                animator.SetFloat("Speed", input.sqrMagnitude);
+            }
+
     }
 
-    void FixedUpdate()
+    IEnumerator Move(Vector3 targetPos)
     {
-        if (Mathf.Abs(movement.x) > Mathf.Abs(movement.y))
+        isMoving = true;
+
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
         {
-            movement.y = 0;
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
         }
-        else
-        {
-            movement.x = 0;
-        }
-        // Movement
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        transform.position = targetPos;
+
+        isMoving = false;
     }
 }
