@@ -68,18 +68,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.011991978, y: -0.46768594}
+  m_Offset: {x: -0.000700891, y: -0.0742085}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
+    oldSize: {x: 0.5, y: 0.5}
     newSize: {x: 2, y: 2}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.7914689, y: 0.8321128}
+  m_Size: {x: 0.42910624, y: 0.315938}
   m_EdgeRadius: 0
 --- !u!212 &4230526288666972977
 SpriteRenderer:
@@ -118,8 +118,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -803541155
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d90c2de77520b0743ae9f055807aa77a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -148,7 +148,7 @@ MonoBehaviour:
   enemyName: Slime Demon
   baseAttack: 0
   target: {fileID: 0}
-  escapeRadius: 5
-  safeRadius: 2
-  moveSpeed: 4
+  escapeRadius: 2.5
+  safeRadius: 0.5
+  moveSpeed: 2.5
   homePosition: {fileID: 0}
