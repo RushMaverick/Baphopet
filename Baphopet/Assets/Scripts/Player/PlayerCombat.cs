@@ -11,7 +11,7 @@ public class PlayerCombat : MonoBehaviour
     public float netRange = 10f;
     public LayerMask enemyLayers;
 
-    // Update is called once per frame
+
     void Update()
         {
             if (Input.GetKeyDown(KeyCode.Space))

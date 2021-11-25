@@ -11,9 +11,6 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody2D rb;
     public Animator animator;
 
-
-
-    // Update is called once per frame
     private void Update()
     {
         if (!isMoving)

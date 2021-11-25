@@ -8,7 +8,7 @@ public class SlimeDemon : Enemy
     public float escapeRadius;
     public float safeRadius; 
     public float moveSpeed;
-    private bool isMoving;
+    public bool isMoving;
     public Transform homePosition; 
     Vector3 PreviousPosition;
     Vector3 CurrentMoveDirection;
@@ -20,18 +20,23 @@ public class SlimeDemon : Enemy
         Debug.Log("Target is " + target.name);
     }
 
-   
     private void Update()
     {
-        //Checks position of enemy, currently unused. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
+        //Checks position of enemy to be used by enemy, currently unused. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
         if (PreviousPosition != transform.position)
-            {   
-                CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
-                PreviousPosition = transform.position;
-                Debug.Log("Demon is" + CurrentMoveDirection);
-            }
+        {   
+            CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
+            PreviousPosition = transform.position;
+            Debug.Log("Demon is" + CurrentMoveDirection);
+        }
 
         CheckDistance();
+
+        if (!isMoving)
+        {     
+           // /*Moves the enemy in one direction*/StartCoroutine(Move(PreviousPosition));
+        }
+        
     }
 
     void CheckDistance()
@@ -41,18 +46,40 @@ public class SlimeDemon : Enemy
             if ((target.position - PreviousPosition).sqrMagnitude > Mathf.Epsilon)
             {
                 transform.position = Vector3.MoveTowards(PreviousPosition, target.position, - 1 * moveSpeed * Time.deltaTime);
-                Debug.Log("Grid Movement here");
             }
         }
     }
 
-       void OnDrawGizmos() {
+    public IEnumerator Move(Vector2 moveVec)
+    {
+
+        var targetPos = transform.position;
+        targetPos.x += moveVec.x;
+        targetPos.y += moveVec.y; 
+
+        isMoving = true;
+
+        if (moveVec.x != 0) moveVec.y = 0;
+
+        while ((targetPos - transform.position).sqrMagnitude > Mathf.Epsilon)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.position = targetPos;
+
+        isMoving = false;
+    }
+
+    void OnDrawGizmos() 
+    {
         Gizmos.DrawWireSphere(transform.position, escapeRadius);
         Gizmos.DrawWireSphere(transform.position, safeRadius);
     }
 }
 
 
+    
 
-/*       
-        CheckDistance();*/
+
+
