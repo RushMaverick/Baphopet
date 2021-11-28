@@ -66,6 +66,7 @@ public class SlimeDemon : Enemy
             transform.position = Vector3.MoveTowards(transform.position, targetPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
         transform.position = targetPos;
 
         isMoving = false;
