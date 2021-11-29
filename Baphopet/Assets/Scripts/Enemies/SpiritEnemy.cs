@@ -37,7 +37,7 @@ public class SpiritEnemy : MonoBehaviour
 
     public void Update()
     {
-        //Checks position of enemy to be used by enemy, currently unused. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
+        //Checks position of enemy to be used by enemy. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
         if (PreviousPosition != transform.position)
         {   
             CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
@@ -47,7 +47,12 @@ public class SpiritEnemy : MonoBehaviour
         //If Player is near, trigger Escape().
         if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, PreviousPosition) > safeRadius)
         {
-            Escape();
+            playerInRange = true;
+            StartCoroutine(Escape());
+        }
+        else
+        {
+            playerInRange = false;
         }
 
         if(isMoving)
@@ -90,6 +95,7 @@ public class SpiritEnemy : MonoBehaviour
     private void Move()
     {
         Vector3 temp = myTransform.position + directionVector * moveSpeed * Time.deltaTime;
+        //Determine an object the enemy can move within, in this case: Bounds in Grid, selected by the field Bounds in the inspector.
         if (bounds.bounds.Contains(temp))
         {
             myRigidbody.MovePosition(temp);
@@ -100,15 +106,16 @@ public class SpiritEnemy : MonoBehaviour
         }
     }
 
-        private void Escape()
+        public IEnumerator Escape()
     {
+        Vector3 runTemp = Vector3.MoveTowards(PreviousPosition, target.position, - 5 * moveSpeed * Time.deltaTime);
+
         if ((target.position - PreviousPosition).sqrMagnitude > Mathf.Epsilon)
         {
-            transform.position = Vector3.MoveTowards(PreviousPosition, target.position, - 1 * moveSpeed * Time.deltaTime);
-        }
-        else
-        {
-            ChangeDirection();
+            //transform.position = Vector3.MoveTowards(PreviousPosition, target.position, - 1 * moveSpeed * Time.deltaTime);
+            Debug.Log("RUN");
+            myRigidbody.MovePosition(runTemp);
+            yield return null; 
         }
     }
 
