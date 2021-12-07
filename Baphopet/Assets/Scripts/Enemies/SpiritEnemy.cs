@@ -42,7 +42,6 @@ public class SpiritEnemy : MonoBehaviour
         {   
             CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
             PreviousPosition = transform.position;
-            Debug.Log("Demon is" + CurrentMoveDirection);
         }
         //If Player is near, trigger Escape().
         if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, PreviousPosition) > safeRadius)
@@ -104,6 +103,11 @@ public class SpiritEnemy : MonoBehaviour
         {
             ChangeDirection();
         }
+    }
+
+    public void GetPunched()
+    {
+        Debug.Log("Got hit by" + target);
     }
 
         public IEnumerator Escape()

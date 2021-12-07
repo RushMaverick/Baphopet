@@ -12,10 +12,11 @@ GameObject:
   - component: {fileID: 4230526288666972991}
   - component: {fileID: 4230526288666972976}
   - component: {fileID: 4230526288666972977}
-  - component: {fileID: 4230526288666972989}
-  m_Layer: 0
+  - component: {fileID: 1296551720}
+  - component: {fileID: 1296551715}
+  m_Layer: 6
   m_Name: Demon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,7 +133,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4230526288666972989
+--- !u!95 &1296551720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230526288666972978}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7557441ef3ada884b9f3b7154479ec6b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1296551715
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,14 +161,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 4230526288666972978}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c55a258e5496b5546aed88654f835216, type: 3}
+  m_Script: {fileID: 11500000, guid: d1e819bc15883ce4e84c16a3a60e2974, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hits: 1
-  enemyName: Slime Demon
-  baseAttack: 0
+  bounds: {fileID: 0}
+  minMoveTime: 1
+  maxMoveTime: 1
+  minWaitTime: 1
+  maxWaitTime: 6
+  escapeRadius: 3
+  safeRadius: 1
+  moveSpeed: 2
   target: {fileID: 0}
-  escapeRadius: 2.5
-  safeRadius: 0.5
-  moveSpeed: 2.5
-  homePosition: {fileID: 0}

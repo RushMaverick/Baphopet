@@ -34,7 +34,7 @@ public class PlayerCombat : MonoBehaviour
             //Set enemy to stunned
             foreach(Collider2D enemy in hitPunch)
             {
-                enemy.GetComponent<EnemyLogic>().GetPunched(1);
+                enemy.GetComponent<SpiritEnemy>().GetPunched();
                 Debug.Log("Stunned " + enemy.name);
             }
         }
