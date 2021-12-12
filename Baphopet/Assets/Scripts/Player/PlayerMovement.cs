@@ -15,26 +15,26 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!isMoving)
         {
-                input.x = Input.GetAxisRaw("Horizontal");
-                input.y = Input.GetAxisRaw("Vertical");
+            input.x = Input.GetAxisRaw("Horizontal");
+            input.y = Input.GetAxisRaw("Vertical");
 
-                //remove diagonal movement
-                if (input.x != 0) input.y = 0;
-                
-                //If Player is not giving inputs for movement
-                if (input != Vector2.zero)
-                {
-                    var targetPos = transform.position;
-                    targetPos.x += input.x;
-                    targetPos.y += input.y; 
+            //remove diagonal movement
+            if (input.x != 0) input.y = 0;
 
-                    StartCoroutine(Move(targetPos));
-                }
-                
-                animator.SetFloat("Horizontal", input.x);
-                animator.SetFloat("Vertical", input.y);
-                animator.SetFloat("Speed", input.sqrMagnitude);
+            //If Player is not giving inputs for movement
+            if (input != Vector2.zero)
+            {
+                var targetPos = transform.position;
+                targetPos.x += input.x;
+                targetPos.y += input.y;
+
+                StartCoroutine(Move(targetPos));
             }
+
+            animator.SetFloat("Horizontal", input.x);
+            animator.SetFloat("Vertical", input.y);
+            animator.SetFloat("Speed", input.sqrMagnitude);
+        }
 
     }
 

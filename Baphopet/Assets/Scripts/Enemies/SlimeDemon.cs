@@ -6,14 +6,14 @@ public class SlimeDemon : Enemy
 {
     public Transform target;
     public float escapeRadius;
-    public float safeRadius; 
+    public float safeRadius;
     public float moveSpeed;
     public bool isMoving;
-    public Transform homePosition; 
+    public Transform homePosition;
     Vector3 PreviousPosition;
     Vector3 CurrentMoveDirection;
 
-     //Update is called once per frame
+    //Update is called once per frame
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
@@ -24,28 +24,29 @@ public class SlimeDemon : Enemy
     {
         //Checks position of enemy to be used by enemy, currently unused. PreviousPosition can be used as transform.position, CurrentMoveDirection checks where enemy is moving, similiar to Player.input.
         if (PreviousPosition != transform.position)
-        {   
+        {
             CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
             PreviousPosition = transform.position;
-            Debug.Log("Demon is" + CurrentMoveDirection);
+            //TODO Debug.Log in update is too resource heavy
+            //Debug.Log("Demon is" + CurrentMoveDirection);
         }
 
         CheckDistance();
 
         if (!isMoving)
-        {     
-           // /*Moves the enemy in one direction*/StartCoroutine(Move(PreviousPosition));
+        {
+            // /*Moves the enemy in one direction*/StartCoroutine(Move(PreviousPosition));
         }
-        
+
     }
 
     void CheckDistance()
     {
-        if(Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, PreviousPosition) > safeRadius)
+        if (Vector3.Distance(target.position, transform.position) <= escapeRadius && Vector3.Distance(target.position, PreviousPosition) > safeRadius)
         {
             if ((target.position - PreviousPosition).sqrMagnitude > Mathf.Epsilon)
             {
-                transform.position = Vector3.MoveTowards(PreviousPosition, target.position, - 1 * moveSpeed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(PreviousPosition, target.position, -1 * moveSpeed * Time.deltaTime);
             }
         }
     }
@@ -55,7 +56,7 @@ public class SlimeDemon : Enemy
 
         var targetPos = transform.position;
         targetPos.x += moveVec.x;
-        targetPos.y += moveVec.y; 
+        targetPos.y += moveVec.y;
 
         isMoving = true;
 
@@ -72,7 +73,7 @@ public class SlimeDemon : Enemy
         isMoving = false;
     }
 
-    void OnDrawGizmos() 
+    void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, escapeRadius);
         Gizmos.DrawWireSphere(transform.position, safeRadius);
@@ -80,7 +81,7 @@ public class SlimeDemon : Enemy
 }
 
 
-    
+
 
 
 

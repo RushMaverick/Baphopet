@@ -150,5 +150,6 @@ MonoBehaviour:
   target: {fileID: 0}
   escapeRadius: 2.5
   safeRadius: 0.5
-  moveSpeed: 2.5
+  moveSpeed: 0.5
+  isMoving: 0
   homePosition: {fileID: 0}
