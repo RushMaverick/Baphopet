@@ -27,7 +27,6 @@ public class SlimeDemon : Enemy
         {   
             CurrentMoveDirection = (PreviousPosition - transform.position).normalized;
             PreviousPosition = transform.position;
-            Debug.Log("Demon is" + CurrentMoveDirection);
         }
 
         CheckDistance();
